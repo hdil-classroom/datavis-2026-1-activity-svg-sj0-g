@@ -4,11 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Data Visualization Activity on SVG</title>
+	<title>SVG Bar Chart</title>
 
-	<style type="text/css">
+	<style>
 		#header-title {
 			font-size: 24px;
+			font-family: Arial;
+			margin-bottom: 16px;
 		}
 
 		#visualization-activity {
@@ -16,20 +18,126 @@
 			height: 500px;
 		}
 
-		/* YOUR CSS CODE WILL GO HERE */
+		.chart-title {
+			font-size: 18px;
+			font-weight: bold;
+			font-family: Arial;
+		}
 
+		.axis-line {
+			stroke: black;
+			stroke-width: 2;
+		}
 
+		.axis-label {
+			font-size: 13px;
+			font-family: Arial;
+		}
+
+		.station-label {
+			font-size: 11px;
+			font-family: Arial;
+			text-anchor: middle;
+		}
+
+		.value-label {
+			font-size: 11px;
+			font-family: Arial;
+			text-anchor: middle;
+		}
+
+		/* Line colors */
+		.line1 { fill: #0032A0; }
+		.line2 { fill: #00A84D; }
+		.line3 { fill: #EF7C1C; }
+
+		.legend-text {
+			font-size: 12px;
+			font-family: Arial;
+		}
 	</style>
 </head>
 
 <body>
 	<h1 id="header-title">
-		In-Class Acitivity by REPLACE_WITH_YOUR_NAME
+		In-Class Activity by Jae Yeong Sung
 	</h1>
 
-	<svg id="visualization-activity">
-		<!-- YOUR SVG CODE WILL GO HERE -->
+	<svg id="visualization-activity" viewBox="0 0 600 500">
 
+		<!-- Title -->
+		<text x="300" y="30" text-anchor="middle" class="chart-title">
+			Top 6 Busiest Stations (Dec 1, 2024)
+		</text>
+
+		<!-- Axes -->
+		<line x1="80" y1="420" x2="550" y2="420" class="axis-line"></line>
+		<line x1="80" y1="80" x2="80" y2="420" class="axis-line"></line>
+
+		<!-- Axis Labels -->
+		<text x="300" y="460" text-anchor="middle" class="axis-label">
+			Stations (X-axis)
+		</text>
+
+		<text x="30" y="250" transform="rotate(-90 30 250)" text-anchor="middle" class="axis-label">
+			Boarding Passengers (Y-axis)
+		</text>
+
+		<!-- Y ticks -->
+		<text x="60" y="420" text-anchor="end" class="axis-label">0</text>
+		<text x="60" y="340" text-anchor="end" class="axis-label">20k</text>
+		<text x="60" y="260" text-anchor="end" class="axis-label">40k</text>
+		<text x="60" y="180" text-anchor="end" class="axis-label">60k</text>
+		<text x="60" y="100" text-anchor="end" class="axis-label">80k</text>
+
+		<!-- Bars -->
+		<g>
+			<rect x="110" y="110" width="40" height="310" class="line2"></rect>
+			<text x="130" y="100" class="value-label">72,874</text>
+			<text x="130" y="440" class="station-label">Hongdae</text>
+		</g>
+
+		<g>
+			<rect x="180" y="140" width="40" height="280" class="line2"></rect>
+			<text x="200" y="130" class="value-label">63,085</text>
+			<text x="200" y="440" class="station-label">Jamsil</text>
+		</g>
+
+		<g>
+			<rect x="250" y="170" width="40" height="250" class="line3"></rect>
+			<text x="270" y="160" class="value-label">53,566</text>
+			<text x="270" y="440" class="station-label">Express</text>
+		</g>
+
+		<g>
+			<rect x="320" y="220" width="40" height="200" class="line1"></rect>
+			<text x="340" y="210" class="value-label">40,617</text>
+			<text x="340" y="440" class="station-label">Seoul</text>
+		</g>
+
+		<g>
+			<rect x="390" y="240" width="40" height="180" class="line2"></rect>
+			<text x="410" y="230" class="value-label">38,271</text>
+			<text x="410" y="440" class="station-label">Sillim</text>
+		</g>
+
+		<g>
+			<rect x="460" y="250" width="40" height="170" class="line2"></rect>
+			<text x="480" y="240" class="value-label">37,521</text>
+			<text x="480" y="440" class="station-label">Sindorim</text>
+		</g>
+
+		<!-- Legend -->
+		<g>
+			<rect x="400" y="60" width="15" height="15" class="line1"></rect>
+			<text x="420" y="72" class="legend-text">Line 1</text>
+
+			<rect x="470" y="60" width="15" height="15" class="line2"></rect>
+			<text x="490" y="72" class="legend-text">Line 2</text>
+
+			<rect x="540" y="60" width="15" height="15" class="line3"></rect>
+			<text x="560" y="72" class="legend-text">Line 3</text>
+		</g>
 
 	</svg>
 
